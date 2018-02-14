@@ -14,8 +14,8 @@ console.log(localStorage.getItem('userData'));
 
 if(localStorage.getItem(userData)){
   userData = JSON.parse(localStorage.getItem('userData'));
-  $(userData.currentQuestion).show();
   $('#welcome').hide();
+  $(userData.currentQuestion).show();
   $('#name').val(userData.name);
   $('#email').val(userData.email);
 } else{
@@ -27,7 +27,8 @@ $('#start').click(function(){
   console.log("start");
   $('#welcome').hide();
   $('#q1').show();
-
+  userData.currentQuestion ="#q1" ;
+  localStorage.setItem('userData', JSON.stringify(userData));
 });
 
 //Checking name input value
@@ -80,6 +81,13 @@ $('#jsbtn').click(function(){
 
 //HTML previous button
 $('#q2aPrevious').click(function(){
+  console.log("Q2a previous button");
+  $('#q2a').hide();
+  $('#q2').show();
+});
+
+$('#q2aNext').click(function(){
+  console.log("Q2a Next button");
   $('#q2a').hide();
   $('#q2').show();
 });
