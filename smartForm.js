@@ -10,6 +10,17 @@ var userData = {
   currentQuestion: '#welcome'
   //have to look in the logic of the above line
 };
+console.log(localStorage.getItem('userData'));
+
+if(localStorage.getItem(userData)){
+  userData = JSON.parse(localStorage.getItem('userData'));
+  $(userData.currentQuestion).show();
+  $('#welcome').hide();
+  $('#name').val(userData.name);
+  $('#email').val(userData.email);
+} else{
+  localStorage.setItem('userData', JSON.stringify(userData)); //specify the key and the value here
+}
 
 //start button onClick
 $('#start').click(function(){
@@ -37,6 +48,7 @@ $('#q1Next').click(function(){
   if($('#name').val() && $('#email').val()){
     userData.name = $('#name').val();
     userData.email = $('#email').val();
+    localStorage.setItem('userData',JSON.stringify(userData)); //converts object to a string
     $('#q1').hide();
     $('#q2').show();
     }
@@ -66,6 +78,7 @@ $('#jsbtn').click(function(){
   $('#q2c').show();
 });
 
+//HTML previous button
 $('#q2aPrevious').click(function(){
   $('#q2a').hide();
   $('#q2').show();
