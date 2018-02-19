@@ -12,7 +12,8 @@ var userData = {
 };
 console.log(localStorage.getItem('userData'));
 
-if(localStorage.getItem(userData)){
+if(localStorage.getItem('userData')){
+  console.log("accessing localStorage");
   userData = JSON.parse(localStorage.getItem('userData'));
   $('#welcome').hide();
   $(userData.currentQuestion).show();
@@ -86,8 +87,64 @@ $('#q2aPrevious').click(function(){
   $('#q2').show();
 });
 
+//HTML Next Button
 $('#q2aNext').click(function(){
   console.log("Q2a Next button");
   $('#q2a').hide();
   $('#q2').show();
 });
+
+//CSS previous button
+$('#q2bPrevious').click(function(){
+  console.log("Q2b previous button");
+  $('#q2b').hide();
+  $('#q2').show();
+});
+//CSS next button
+$('#q2bNext').click(function(){
+  console.log("Q2b next button");
+  $('#q2b').hide();
+  $('#q2').show();
+});
+
+
+//JS previous button
+$('#q2cPrevious').click(function(){
+  console.log("Q2c previous button");
+  $('#q2c').hide();
+  $('#q2').show();
+});
+//JS next button
+$('#q2cNext').click(function(){
+  console.log("Q2c next button");
+  $('#q2c').hide();
+  $('#q2').show();
+});
+
+$(document).ready(function () {
+  $("#q2aNext").validate({
+  rules: {
+      "likesHTML[]": {
+        required: function (element) {
+                var html_LU = $('.checkbox');
+                if (html_LU.filter(':checked').length < 1) {
+                    return false;
+                }
+                return true;
+            },
+            minlength: 1
+        }
+
+  },
+  messages: {
+      "likesHTML[]": {
+          required: "You must check at least 1 box",
+          alert("wtf");
+          //minlength: "Check 1 or more boxes"
+      }
+  }
+  });
+
+
+
+  });

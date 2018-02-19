@@ -42,12 +42,12 @@
     </div>
     <!-- Question 2 END -->
     <!-- Question 2a -->
-    <div class="row jumbotron question" id="q2a">
+    <div class="row jumbotron question" id="q2a" >
       <div class="col-sm-6">
         <p>What do you <strong>like</strong> about HTML?</p>
         <div class="checkbox">
           <label>
-          <input name="likesHTML" type="checkbox"> Learning the basics is trivial
+          <input name="likesHTML" type="checkbox" validate="required:true, minlength:1"> Learning the basics is trivial
         </label>
         </div>
         <div class="checkbox">
@@ -138,8 +138,8 @@
         </label>
         </div>
         <div class="btnRight">
-          <button class="btn btn-primary"><span class="glyphicon glyphicon-chevron-left"></span> Previous</button>
-          <button class="btn btn-success">Next <span class="glyphicon glyphicon-chevron-right"></span></button>
+          <button class="btn btn-primary" id="q2bPrevious" ><span class="glyphicon glyphicon-chevron-left"></span> Previous</button>
+          <button class="btn btn-success" id="q2bNext" >Next <span class="glyphicon glyphicon-chevron-right"></span></button>
         </div>
       </div>
     </div>
@@ -192,8 +192,8 @@
         </label>
         </div>
         <div class="btnRight">
-          <button class="btn btn-primary"><span class="glyphicon glyphicon-chevron-left"></span> Previous</button>
-          <button class="btn btn-success">Next <span class="glyphicon glyphicon-chevron-right"></span></button>
+          <button class="btn btn-primary" id="q2cPrevious"><span class="glyphicon glyphicon-chevron-left"></span> Previous</button>
+          <button class="btn btn-success" id="q2cNext">Next <span class="glyphicon glyphicon-chevron-right"></span></button>
         </div>
       </div>
     </div>
@@ -267,6 +267,7 @@
 
   <script type="text/javascript" src="vendor/jquery-3.1.1.min.js"></script>
   <script type="text/javascript" src="smartForm.js"></script>
+  <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 </body>
 
 </html>
