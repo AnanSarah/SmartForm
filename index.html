@@ -2,13 +2,15 @@
 <html>
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>SmartForm</title>
   <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <div class="container">
+  <div class="container-fluid">
     <!-- Welcome -->
     <div class="jumbotron " id="welcome">
       <h1>Welcome to SmartForm!</h1>
@@ -47,22 +49,22 @@
         <p>What do you <strong>like</strong> about HTML?</p>
         <div class="checkbox">
           <label>
-          <input name="likesHTML" type="checkbox" validate="required:true, minlength:1"> Learning the basics is trivial
+          <input name="likesHTML" type="checkbox" id="likesHTML" value="Learning the basics is trivial"> Learning the basics is trivial
         </label>
         </div>
         <div class="checkbox">
           <label>
-          <input name="likesHTML" type="checkbox"> No hassle: write code in a text editor and open in Browser
+          <input name="likesHTML" type="checkbox" id="likesHTML" value=" No hassle: write code in a text editor and open in Browser"> No hassle: write code in a text editor and open in Browser
         </label>
         </div>
         <div class="checkbox">
           <label>
-          <input name="likesHTML" type="checkbox"> Tags are easy to remember
+          <input name="likesHTML" type="checkbox" id="likesHTML" value="Tags are easy to remember"> Tags are easy to remember
         </label>
         </div>
         <div class="checkbox">
           <label>
-          <input name="likesHTML" type="checkbox"> HTML5 features like canvas are powerful
+          <input name="likesHTML" type="checkbox" id="likesHTML" value="HTML5 features like canvas are powerful"> HTML5 features like canvas are powerful
         </label>
         </div>
       </div>
@@ -70,22 +72,22 @@
         <p>What do you <strong>dislike</strong> about HTML?</p>
         <div class="checkbox">
           <label>
-          <input name="likesHTML" type="checkbox"> Difficult to learn
+          <input   name="dislikesHTML" type="checkbox" value="Difficult to learn"> Difficult to learn
         </label>
         </div>
         <div class="checkbox">
           <label>
-          <input name="likesHTML" type="checkbox"> Having to close tags is annoying!
+          <input  name="dislikesHTML" type="checkbox"  value="Having to close tags is annoying!"> Having to close tags is annoying!
         </label>
         </div>
         <div class="checkbox">
           <label>
-          <input name="likesHTML" type="checkbox"> Too many tags and attributes to remember
+          <input  name="dislikesHTML"  type="checkbox" value="Too many tags and attributes to remember"> Too many tags and attributes to remember
         </label>
         </div>
         <div class="checkbox">
           <label>
-          <input name="likesHTML" type="checkbox"> Code looks pretty messy
+          <input   name="dislikesHTML" type="checkbox" value="Code looks pretty messy"> Code looks pretty messy
         </label>
         </div>
         <div class="btnRight">
@@ -101,17 +103,17 @@
         <p>What do you <strong>like</strong> about CSS?</p>
         <div class="checkbox">
           <label>
-          <input name="likesHTML" type="checkbox"> Syntax is easy to learn
+          <input  type="checkbox" value="Syntax is easy to learn" name="likesCSS"> Syntax is easy to learn
         </label>
         </div>
         <div class="checkbox">
           <label>
-          <input name="likesHTML" type="checkbox"> Can be used as an art tool
+          <input  type="checkbox" value="Can be used as an art tool" name="likesCSS"> Can be used as an art tool
         </label>
         </div>
         <div class="checkbox">
           <label>
-          <input name="likesHTML" type="checkbox"> Enables creativity in web design
+          <input  type="checkbox" value="Enables creativity in web design" name="likesCSS"> Enables creativity in web design
         </label>
         </div>
       </div>
@@ -119,22 +121,22 @@
         <p>What do you <strong>dislike</strong> about CSS?</p>
         <div class="checkbox">
           <label>
-          <input name="likesHTML" type="checkbox"> Difficult to learn
+          <input  type="checkbox" value="Difficult to learn" name="dislikesCSS"> Difficult to learn
         </label>
         </div>
         <div class="checkbox">
           <label>
-          <input name="likesHTML" type="checkbox"> Debugging is a nightmare
+          <input  type="checkbox" value="Debugging is a nightmare" name="dislikesCSS">> Debugging is a nightmare
         </label>
         </div>
         <div class="checkbox">
           <label>
-          <input name="likesHTML" type="checkbox"> Conflicts can be very confusing
+          <input  type="checkbox" value="Conflicts can be very confusing" name="dislikesCSS">> Conflicts can be very confusing
         </label>
         </div>
         <div class="checkbox">
           <label>
-          <input name="likesHTML" type="checkbox"> Code is messy
+          <input  type="checkbox" value="Code is messy" name="dislikesCSS">> Code is messy
         </label>
         </div>
         <div class="btnRight">
@@ -150,22 +152,22 @@
         <p>What do you <strong>like</strong> about JavaScript?</p>
         <div class="checkbox">
           <label>
-          <input name="likesHTML" type="checkbox"> Easy to learn
+          <input  type="checkbox" value="Easy to learn" name="likesJS"> Easy to learn
         </label>
         </div>
         <div class="checkbox">
           <label>
-          <input name="likesHTML" type="checkbox"> Multple programming styles supported
+          <input  type="checkbox" value="Multple programming styles supported" name="likesJS"> Multple programming styles supported
         </label>
         </div>
         <div class="checkbox">
           <label>
-          <input name="likesHTML" type="checkbox"> Just code and run easily in the browser
+          <input  type="checkbox" value="Just code and run easily in the browser" name="likesJS"> Just code and run easily in the browser
         </label>
         </div>
         <div class="checkbox">
           <label>
-          <input name="likesHTML" type="checkbox"> Huge growing community and plenty of resources online
+          <input  type="checkbox" value="Huge growing community and plenty of resources online" name="likesJS"> Huge growing community and plenty of resources online
         </label>
         </div>
       </div>
@@ -173,22 +175,22 @@
         <p>What do you <strong>dislike</strong> about JavaScript?</p>
         <div class="checkbox">
           <label>
-          <input name="likesHTML" type="checkbox"> Difficult to learn
+          <input name="likesHTML" type="checkbox" value="Difficult to learn" name="dislikesJS"> Difficult to learn
         </label>
         </div>
         <div class="checkbox">
           <label>
-          <input name="likesHTML" type="checkbox"> Multple programming paradigms supported (too many options)
+          <input  type="checkbox" value="Multple programming paradigms supported (too many options)" name="dislikesJS"> Multple programming paradigms supported (too many options)
         </label>
         </div>
         <div class="checkbox">
           <label>
-          <input name="likesHTML" type="checkbox"> Easy to right messy code
+          <input  type="checkbox" value="Easy to right messy code" name="dislikesJS"> Easy to right messy code
         </label>
         </div>
         <div class="checkbox">
           <label>
-          <input name="likesHTML" type="checkbox"> No multi threading
+          <input  type="checkbox" value="No multi threading" name="dislikesJS"> No multi threading
         </label>
         </div>
         <div class="btnRight">
@@ -202,52 +204,52 @@
     <div class="row jumbotron question" id="q3">
       <h4>Estimate your front-end skills</h4>
       <div class="col-sm-4">
-        <span>HTML Strength</span>
+        <span id="htmlStrengh">HTML Strength</span>
         <label class="radio">
-          <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Weak"> Weak
+          <input type="radio" name="inlineHTMLRadioOptions" id="inlineRadio1" value="Weak"> Weak
         </label>
         <label class="radio">
-          <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Average"> Average
+          <input type="radio" name="inlineHTMLRadioOptions" id="inlineRadio2" value="Average"> Average
         </label>
         <label class="radio">
-          <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="Good"> Good
+          <input type="radio" name="inlineHTMLRadioOptions" id="inlineRadio3" value="Good"> Good
         </label>
         <label class="radio">
-          <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="Expert"> Expert
+          <input type="radio" name="inlineHTMLRadioOptions" id="inlineRadio3" value="Expert"> Expert
         </label>
       </div>
       <div class="col-sm-4">
         <span>CSS Strength</span>
         <label class="radio">
-          <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Weak"> Weak
+          <input type="radio" name="inlineCSSRadioOptions" id="inlineRadio1" value="Weak"> Weak
         </label>
         <label class="radio">
-          <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Average"> Average
+          <input type="radio" name="inlineCSSRadioOptions" id="inlineRadio2" value="Average"> Average
         </label>
         <label class="radio">
-          <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="Good"> Good
+          <input type="radio" name="inlineCSSRadioOptions" id="inlineRadio3" value="Good"> Good
         </label>
         <label class="radio">
-          <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="Expert"> Expert
+          <input type="radio" name="inlineCSSRadioOptions" id="inlineRadio3" value="Expert"> Expert
         </label>
       </div>
       <div class="col-sm-4">
         <span>JavaScript Strength</span>
         <label class="radio">
-          <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Weak"> Weak
+          <input type="radio" name="inlineJSRadioOptions" id="inlineRadio1" value="Weak"> Weak
         </label>
         <label class="radio">
-          <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Average"> Average
+          <input type="radio" name="inlineJSRadioOptions" id="inlineRadio2" value="Average"> Average
         </label>
         <label class="radio">
-          <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="Good"> Good
+          <input type="radio" name="inlineJSRadioOptions" id="inlineRadio3" value="Good"> Good
         </label>
         <label class="radio">
-          <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="Expert"> Expert
+          <input type="radio" name="inlineJSRadioOptions" id="inlineRadio3" value="Expert"> Expert
         </label>
         <div class="btnRight">
-          <button class="btn btn-primary"><span class="glyphicon glyphicon-chevron-left"></span> Previous</button>
-          <button class="btn btn-success">Next <span class="glyphicon glyphicon-chevron-right"></span></button>
+          <button class="btn btn-primary" id="q3previous"><span class="glyphicon glyphicon-chevron-left"></span> Previous</button>
+          <button class="btn btn-success" id="q3next">Next <span class="glyphicon glyphicon-chevron-right"></span></button>
         </div>
       </div>
     </div>
@@ -256,13 +258,12 @@
     <div class="jumbotron question" id="thanks">
       <h1>Thank You!</h1>
       <p>Your Front-end Technology Survey answers were submitted successfully.</p>
-      <p><button class="btn btn-default btn-lg">View Answers</button> <button class="btn btn-danger">Delete Answers</button></p>
+      <p><button class="btn btn-default btn-lg" id="viewAns">View Answers</button> <button class="btn btn-danger" id="delAns">Delete Answers</button></p>
     </div>
-    <!-- Thank you END-->
-    <!-- Show answers in new view (div)
-    -
-    -
-    -->
+    <div class="Answers" id="SurveyAnser">
+      
+
+    </div>
   </div>
 
   <script type="text/javascript" src="vendor/jquery-3.1.1.min.js"></script>
