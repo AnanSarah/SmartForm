@@ -1,76 +1,74 @@
 
 //json
 var userData = {
-  name:'',
-  email:'',
-  html: {likes:[], dislikes:[]},
-  css: {likes:[], dislikes:[]},
-  js: {likes:[], dislikes:[]},
-  strength:{css:'',js:'',html:''},
-  currentQuestion: '#welcome'
-  //have to look in the logic of the above line
+    name:'',
+    email:'',
+    html: {likes:[], dislikes:[]},
+    css: {likes:[], dislikes:[]},
+    js: {likes:[], dislikes:[]},
+    strength:{css:'',js:'',html:''},
+    currentQuestion: '#welcome'
+
 };
-console.log(localStorage.getItem('userData'));
+  console.log(localStorage.getItem('userData'));
 
-if(localStorage.getItem('userData')){
-  console.log("accessing localStorage");
-  userData = JSON.parse(localStorage.getItem('userData'));
-  $('#welcome').hide();
-  $(userData.currentQuestion).show();
-  $('#name').val(userData.name);
-  $('#email').val(userData.email);
+  if(localStorage.getItem('userData')){
+    console.log("accessing localStorage");
+    userData = JSON.parse(localStorage.getItem('userData'));
+    $('#welcome').hide();
+    $(userData.currentQuestion).show();
+    $('#name').val(userData.name);
+    $('#email').val(userData.email);
 
-} else{
-  localStorage.setItem('userData', JSON.stringify(userData)); //specify the key and the value here
-}
+  } else{
+    localStorage.setItem('userData', JSON.stringify(userData)); //specify the key and the value here
+  }
 
 //start button onClick
 $('#start').click(function(){
-  console.log("start");
-  $('#welcome').fadeOut("fast");
-  $('#q1').slideDown("slow");
-  userData.currentQuestion ="#q1" ;
-  localStorage.setItem('userData', JSON.stringify(userData));
+    console.log("start");
+    $('#welcome').fadeOut("fast");
+    $('#q1').slideDown("slow");
+    userData.currentQuestion ="#q1" ;
+    localStorage.setItem('userData', JSON.stringify(userData));
 });
 
 //Checking name input value
 $('name').change(function(event){
-  console.log(s('#name').val());
+    console.log(s('#name').val());
 })
 
 //checking email input value
 $('email').change(function (event) {
-  console.log(s('#email').val());
+    console.log(s('#email').val());
   //check email validation otherwise throw an error in "q1Next"
 
 })
 
 //Q1 Next button onClick
 $('#q1Next').click(function(){
+
     console.log("Q1 NEXT");
 
     if($('#name').val() && $('#email').val()){
 
-      userData.name = $('#name').val();
-      userData.email = $('#email').val();
+          userData.name = $('#name').val();
+          userData.email = $('#email').val();
 
-      localStorage.setItem('userData',JSON.stringify(userData)); //converts object to a string
+          localStorage.setItem('userData',JSON.stringify(userData)); //converts object to a string
 
-      $('#q1').fadeOut("fast");
-      $('#q2').slideDown("slow");
-      }
+          $('#q1').fadeOut("fast");
+          $('#q2').slideDown("slow");
+    }
     else{
-
         alert('Pleast enter your name & email.') //showing alert if no input is given
-
     }
 });
 
 //html button onClick
+
 $('#htmlbtn').click(function(){
-
     console.log("HTML Button");
-
     $('#q2').fadeOut("fast");
     $('#q2a').slideDown("slow");
 });
@@ -78,9 +76,7 @@ $('#htmlbtn').click(function(){
 //css button onClick
 
 $('#cssbtn').click(function(){
-
     console.log("CSS Button");
-
     $('#q2').fadeOut("fast");
     $('#q2b').slideDown("slow");
 });
@@ -88,18 +84,17 @@ $('#cssbtn').click(function(){
 //js button onClick
 
 $('#jsbtn').click(function(){
-
     console.log("HTML Button");
-
     $('#q2').fadeOut("fast");
     $('#q2c').slideDown("slow");
 });
 
 //HTML previous button
+
 $('#q2aPrevious').click(function(){
-  console.log("Q2a previous button");
-  $('#q2a').fadeOut("fast");
-  $('#q2').slideDown("slow");
+    console.log("Q2a previous button");
+    $('#q2a').fadeOut("fast");
+    $('#q2').slideDown("slow");
 });
 
 //HTML Next Button
@@ -115,7 +110,7 @@ $('#q2aNext').click(function(){
     userData.html.likes = $("input[name='likesHTML']:checked").val();
     localStorage.setItem('userData',JSON.stringify(userData));
 
-    userData.HTML.dislikes = $("input[name='dislikesHTML']:checked").val();
+    userData.html.dislikes = $("input[name='dislikesHTML']:checked").val();
     localStorage.setItem('userData',JSON.stringify(userData));
 
     $('#q2a').fadeOut("fast");
@@ -220,12 +215,9 @@ $('#q2bNext').click(function(){
 
 //JS previous button
 $('#q2cPrevious').click(function(){
-
-  console.log("Q2c previous button");
-
-  $('#q2c').fadeOut("fast");
-  $('#q2b').slideDown("slow");
-
+    console.log("Q2c previous button");
+    $('#q2c').fadeOut("fast");
+    $('#q2b').slideDown("slow");
 });
 
 //JS next button
@@ -237,13 +229,13 @@ $('#q2cNext').click(function(){
     var jsDisLikes = document.getElementsByName("dislikesJS");
 */
 
-      if($("input[name='likesJS']:checked").length || $("input[name='dislikesJS']:checked").length){
+      if($("input[name='likesJS']:checked").length && $("input[name='dislikesJS']:checked").length){
 
         userData.js.likes = $("input[name='likesJS']:checked").val();
         localStorage.setItem('userData',JSON.stringify(userData));
 
         userData.js.dislikes = $("input[name='dislikesJS']:checked").val();
-        localStorage.setItem('userData',JSON.stringify(userData));
+        localStorage.setItem('userData',JSON.stringify(userData)); console.log("JS dislikes");
 
         console.log("Q2c next button");
         $('#q2c').fadeOut("fast");
@@ -270,7 +262,7 @@ $('#q2cNext').click(function(){
       }
       else{
 
-        alert("Please select atleast one option");
+        alert("Please select atleast one option from likes and another from dislikes");
 
       }
 
@@ -307,9 +299,7 @@ $('#q2cNext').click(function(){
 //Q3 Previous Button
 
 $('#q3previous').click(function(){
-
       console.log("q3 previous clicked");
-
       $("#q3").fadeOut("fast");
       $("#q2c").slideDown("slow");
 
@@ -318,19 +308,25 @@ $('#q3previous').click(function(){
 //Q3 Next Button
 
 $('#q3next').click(function(){
-
       console.log("q3 next clicked");
-
       $("#q3").fadeOut("fast");
       $("#thanks").slideDown("slow");
 
 });
 
-$('#viewAns').click(function(){
+//View Answers
 
+$('#viewAns').click(function(){
+  localStorage.setItem('userData',JSON.stringify(userData));
+  $("#thanks").fadeOut("fast");
+  $("#SurveyAnser").slideDown("slow");
 })
+
+//Delete Answers
 
 $('#delAns').click(function(){
-
+  alert("All your entries will be deleted!")
+  localStorage.clear();
+  $("#thanks").fadeOut("fast");
+  $("#welcome").slideDown("slow");
 })
-///////////////////////////////////////

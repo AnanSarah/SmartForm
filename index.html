@@ -260,15 +260,50 @@
       <p>Your Front-end Technology Survey answers were submitted successfully.</p>
       <p><button class="btn btn-default btn-lg" id="viewAns">View Answers</button> <button class="btn btn-danger" id="delAns">Delete Answers</button></p>
     </div>
-    <div class="Answers" id="SurveyAnser">
-      
+
+    <div class="jumbotron question" id="SurveyAnser">
+      <h1>Your answers</h1>
+
+      <ul
+      <h7>HTML likes: </h7>
+      <p id="likes_HTML"></p>
+      <h7>HTML dislikes: </h7>
+      <p id="dislikes_HTML"></p>
+      <h7>HTML Strength</h7>
+      <p id="strength_HTML"></p>
+      <h7>CSS likes: </h7>
+      <p id="likes_CSS"></p>
+      <h7>CSS dislikes: </h7>
+      <p id="dislikes_CSS"></p>
+      <h7>CSS Strength</h7>
+      <p id="strength_CSS"></p>
+      <h7>JS likes: </h7>
+      <p id="likes_JS"></p>
+      <h7>JS dislikes: </h7>
+      <p id="dislikes_JS"></p>
+      <h7>JS Strength</h7>
+      <p id="strength_JS"></p>
+    </ul>
+
+      <script type="text/javascript">
+      var ans = JSON.parse(localStorage.userData);
+      document.getElementById("likes_HTML").innerHTML = ans.html.likes.toString();
+      document.getElementById("dislikes_HTML").innerHTML = ans.html.dislikes.toString();
+      document.getElementById("strength_HTML").innerHTML = ans.strength.html.toString();
+      document.getElementById("likes_CSS").innerHTML = ans.css.likes.toString();
+      document.getElementById("dislikes_CSS").innerHTML = ans.css.dislikes.toString();
+      document.getElementById("strength_CSS").innerHTML = ans.strength.css.toString();
+      document.getElementById("likes_JS").innerHTML = ans.js.likes.toString();
+      document.getElementById("dislikes_JS").innerHTML = ans.js.dislikes.toString();
+      document.getElementById("strength_JS").innerHTML = ans.strength.js.toString();
+      </script>
 
     </div>
   </div>
 
   <script type="text/javascript" src="vendor/jquery-3.1.1.min.js"></script>
   <script type="text/javascript" src="smartForm.js"></script>
-  <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
-</body>
+  
 
+</body>
 </html>
