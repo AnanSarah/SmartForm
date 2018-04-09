@@ -52,13 +52,25 @@ $('#q1Next').click(function(){
 
     if($('#name').val() && $('#email').val()){
 
-          userData.name = $('#name').val();
-          userData.email = $('#email').val();
+      var checkname =  /^[a-zA-Z ]{2,30}$/;
+      // var res1 = checkname.test($('#name').val());
+      var checkmail =  /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
+      // var res2 = checkmail.test($('#email').val());
 
-          localStorage.setItem('userData',JSON.stringify(userData)); //converts object to a string
+          if($('#email').val().match(checkmail) && $('#name').val().match(checkname)){
 
-          $('#q1').fadeOut("fast");
-          $('#q2').slideDown("slow");
+              userData.name = $('#name').val();
+              localStorage.setItem('userData',JSON.stringify(userData));
+
+              userData.email = $('#email').val();
+              localStorage.setItem('userData',JSON.stringify(userData)); //converts object to a string
+              $('#q1').fadeOut("fast");
+              $('#q2').slideDown("slow");
+          }
+          else{
+            alert('Please enter valid name & email.')
+          }
+
     }
     else{
         alert('Pleast enter your name & email.') //showing alert if no input is given
@@ -101,37 +113,30 @@ $('#q2aPrevious').click(function(){
 
 $('#q2aNext').click(function(){
   console.log("Q2a Next button");
-  /*var i;
+ var i;
   var counter = 0;
-  var htmlLikes = document.getElementsByName("likesHTML");
-  var htmlDisLikes = document.getElementsByName("dislikesHTML");
-*/
-  if($("input[name='likesHTML']:checked").length && $("input[name='dislikesHTML']:checked").length){
-    userData.html.likes = $("input[name='likesHTML']:checked").val();
-    localStorage.setItem('userData',JSON.stringify(userData));
+//  var document.getElementsByName("likesHTML")= document.getElementsByName("likesHTML");
+  // var htmlDisLikes = document.getElementsByName("dislikesHTML");
 
-    userData.html.dislikes = $("input[name='dislikesHTML']:checked").val();
-    localStorage.setItem('userData',JSON.stringify(userData));
+  // if($("input[name='likesHTML']:checked").length && $("input[name='dislikesHTML']:checked").length){
+  //   userData.html.likes = $("input[name='likesHTML']:checked").val();
+  //   localStorage.setItem('userData',JSON.stringify(userData));
+  //
+  //   userData.html.dislikes = $("input[name='dislikesHTML']:checked").val();
+  //   localStorage.setItem('userData',JSON.stringify(userData));
 
-    $('#q2a').fadeOut("fast");
-    $('#q2b').slideDown("slow");
 
+
+  for (var i = 0; i < document.getElementsByName('likesHTML').length; i++) {
+      if (document.getElementsByName('likesHTML')[i].checked) {
+        userData.html.likes.push(document.getElementsByName('likesHTML')[i].value);
+        localStorage.setItem('userData', JSON.stringify(userData));
+      //  givePassforLikes = true;
+      }
   }
-  else{
-    alert("Please select atleast one option from likes and another from dislikes");
-  }
-
-/*
-  for (i = 0; i < htmlLikes.length; i++) {
-          if(htmlLikes[i].checked == true){
-            userData.html.likes.push(htmlLikes[i].value);
-            localStorage.setItem('userData',JSON.stringify(userData));
-            counter++;
-          }
-        }
-  for (i = 0; i < htmlDisLikes.length; i++) {
-                if(htmlDisLikes[i].checked == true){
-                  userData.html.dislikes.push(htmlDisLikes[i].value);
+  for (var i = 0; i < document.getElementsByName("dislikesHTML").length; i++) {
+                if(document.getElementsByName("dislikesHTML")[i].checked){
+                userData.html.dislikes.push(document.getElementsByName('dislikesHTML')[i].value);
                   localStorage.setItem('userData',JSON.stringify(userData));
                   counter++;
            }
@@ -146,7 +151,7 @@ $('#q2aNext').click(function(){
             $('#q2a').fadeOut("fast");
             $('#q2b').slideDown("slow");
           }
-          */
+
 });
 
 //CSS previous button
@@ -161,38 +166,39 @@ $('#q2bPrevious').click(function(){
 
 //CSS next button
 $('#q2bNext').click(function(){
-/*
-  var i;
+
+
   var counter = 0;
   var cssLikes = document.getElementsByName("likesCSS");
   var cssDisLikes = document.getElementsByName("dislikesCSS");
-*/
 
-  if($("input[name='likesCSS']:checked").length && $("input[name='dislikesCSS']:checked").length){
-    userData.css.likes = $("input[name='likesCSS']:checked").val();
-    localStorage.setItem('userData',JSON.stringify(userData));
 
-    userData.css.dislikes = $("input[name='dislikesCSS']:checked").val();
-    localStorage.setItem('userData',JSON.stringify(userData));
+  // if($("input[name='likesCSS']:checked").length && $("input[name='dislikesCSS']:checked").length){
+  //   userData.css.likes = $("input[name='likesCSS']:checked").val();
+  //   localStorage.setItem('userData',JSON.stringify(userData));
+  //
+  //   userData.css.dislikes = $("input[name='dislikesCSS']:checked").val();
+  //   localStorage.setItem('userData',JSON.stringify(userData));
+  //
+  //   $('#q2b').fadeOut("fast");
+  //   $('#q2c').slideDown("slow");
+  // }
+  // else{
+  //
+  //   alert("Please select atleast one option from likes and another from dislikes");
+  //
+  // }
 
-    $('#q2b').fadeOut("fast");
-    $('#q2c').slideDown("slow");
-  }
-  else{
 
-    alert("Please select atleast one option from likes and another from dislikes");
-
-  }
-
-  /*
-  for (i = 0; i < cssLikes.length; i++) {
+  for (var i = 0; i < cssLikes.length; i++) {
+    console.log(cssLikes.length);
           if(cssLikes[i].checked == true){
             userData.css.likes.push(cssLikes[i].value);
             localStorage.setItem('userData',JSON.stringify(userData));
             counter++;
           }
         }
-  for (i = 0; i < cssDisLikes.length; i++) {
+  for (var i = 0; i < cssDisLikes.length; i++) {
                 if(cssDisLikes[i].checked == true){
                   userData.css.dislikes.push(cssDisLikes[i].value);
                   localStorage.setItem('userData',JSON.stringify(userData));
@@ -209,7 +215,7 @@ $('#q2bNext').click(function(){
           $('#q2b').fadeOut("fast");
           $('#q2c').slideDown("slow");
         }
-        */
+
 });
 
 
@@ -222,60 +228,60 @@ $('#q2cPrevious').click(function(){
 
 //JS next button
 $('#q2cNext').click(function(){
-/*
-    var i;
+
+
     var counter = 0;
     var jsLikes = document.getElementsByName("likesJS");
     var jsDisLikes = document.getElementsByName("dislikesJS");
-*/
-
-      if($("input[name='likesJS']:checked").length && $("input[name='dislikesJS']:checked").length){
-
-        userData.js.likes = $("input[name='likesJS']:checked").val();
-        localStorage.setItem('userData',JSON.stringify(userData));
-
-        userData.js.dislikes = $("input[name='dislikesJS']:checked").val();
-        localStorage.setItem('userData',JSON.stringify(userData)); console.log("JS dislikes");
-
-        console.log("Q2c next button");
-        $('#q2c').fadeOut("fast");
-        $('#q3').slideDown("slow");
-
-            if($("input[name='inlineHTMLRadioOptions']:checked").length && $("input[name='inlineCSSRadioOptions']:checked").length && $("input[name='inlineJSRadioOptions']:checked").length){
-                userData.strength.html = $("input[name='inlineHTMLRadioOptions']:checked").val();
-                localStorage.setItem('userData',JSON.stringify(userData));
-
-                userData.strength.css = $("input[name='inlineCSSRadioOptions']:checked").val();
-                localStorage.setItem('userData',JSON.stringify(userData));
-
-                userData.strength.js = $("input[name='inlineJSRadioOptions']:checked").val();
-                localStorage.setItem('userData',JSON.stringify(userData));
-            }
-
-            else{
-
-                alert("Please select strength from at least one field.")
-
-            }
 
 
-      }
-      else{
+      // if($("input[name='likesJS']:checked").length && $("input[name='dislikesJS']:checked").length){
+      //
+      //   userData.js.likes = $("input[name='likesJS']:checked").val();
+      //   localStorage.setItem('userData',JSON.stringify(userData));
+      //
+      //   userData.js.dislikes = $("input[name='dislikesJS']:checked").val();
+      //   localStorage.setItem('userData',JSON.stringify(userData)); console.log("JS dislikes");
+      //
+      //   console.log("Q2c next button");
+      //   $('#q2c').fadeOut("fast");
+      //   $('#q3').slideDown("slow");
+      //
+      //       if($("input[name='inlineHTMLRadioOptions']:checked").length && $("input[name='inlineCSSRadioOptions']:checked").length && $("input[name='inlineJSRadioOptions']:checked").length){
+      //           userData.strength.html = $("input[name='inlineHTMLRadioOptions']:checked").val();
+      //           localStorage.setItem('userData',JSON.stringify(userData));
+      //
+      //           userData.strength.css = $("input[name='inlineCSSRadioOptions']:checked").val();
+      //           localStorage.setItem('userData',JSON.stringify(userData));
+      //
+      //           userData.strength.js = $("input[name='inlineJSRadioOptions']:checked").val();
+      //           localStorage.setItem('userData',JSON.stringify(userData));
+      //       }
+      //
+      //       else{
+      //
+      //           alert("Please select strength from at least one field.")
+      //
+      //       }
+      //
+      //
+      // }
+      // else{
+      //
+      //   alert("Please select atleast one option from likes and another from dislikes");
+      //
+      // }
 
-        alert("Please select atleast one option from likes and another from dislikes");
 
-      }
 
-/*
-
-    for (i = 0; i < jsLikes.length; i++) {
+    for (var i = 0; i < jsLikes.length; i++) {
             if(jsLikes[i].checked == true){
               userData.js.likes.push(jsLikes[i].value);
               localStorage.setItem('userData',JSON.stringify(userData));
               counter++;
             }
           }
-    for (i = 0; i < jsDisLikes.length; i++) {
+    for (var i = 0; i < jsDisLikes.length; i++) {
                   if(jsDisLikes[i].checked == true){
                     userData.js.dislikes.push(jsDisLikes[i].value);
                     localStorage.setItem('userData',JSON.stringify(userData));
@@ -292,8 +298,6 @@ $('#q2cNext').click(function(){
           $('#q3').slideDown("slow");
         }
 
-*/
-
 });
 
 //Q3 Previous Button
@@ -308,19 +312,116 @@ $('#q3previous').click(function(){
 //Q3 Next Button
 
 $('#q3next').click(function(){
-      console.log("q3 next clicked");
+  var counter1 = 0;
+  var counter2 = 0;
+  var counter3 = 0;
+
+  for (var i = 0; i < document.getElementsByName('inlineHTMLRadioOptions').length; i++) {
+                if(document.getElementsByName('inlineHTMLRadioOptions')[i].checked == true){
+                    console.log(document.getElementsByName('inlineHTMLRadioOptions')[i].value);
+                  userData.strength.html =document.getElementsByName('inlineHTMLRadioOptions')[i].value;
+                  localStorage.setItem('userData',JSON.stringify(userData));
+                  counter1++;
+           }
+           // else{
+           //   console.log('loop kaj kore na');
+           // }
+        }
+
+
+  for (var i = 0; i < document.getElementsByName('inlineJSRadioOptions').length; i++) {
+                        if(document.getElementsByName('inlineJSRadioOptions')[i].checked == true){
+                            console.log(document.getElementsByName('inlineJSRadioOptions')[i].value);
+                          userData.strength.js=document.getElementsByName('inlineJSRadioOptions')[i].value;
+                          localStorage.setItem('userData',JSON.stringify(userData));
+                          counter2++;
+                   }
+                   // else{
+                   //   console.log('loop kaj kore na');
+                   // }
+                }
+
+
+    for (var i = 0; i <document.getElementsByName('inlineCSSRadioOptions').length; i++) {
+                                if(document.getElementsByName('inlineCSSRadioOptions')[i].checked == true){
+                                  console.log(document.getElementsByName('inlineCSSRadioOptions')[i].value);
+                                  userData.strength.css =document.getElementsByName('inlineCSSRadioOptions')[i].value;
+                                  localStorage.setItem('userData',JSON.stringify(userData));
+                                  counter3++;
+                           }
+                           // else{
+                           //   console.log('loop kaj kore na');
+                           // }
+                        }
+          if (counter3 == 0 || counter2 ==0 || counter1 ==0){
+            console.log("counter3"+counter3);
+              console.log("counter2"+counter2);
+                console.log("counter1"+counter1);
+                console.log("selecting alert");
+                alert("error");
+                }
+
+      else{
+        console.log("q3 next clicked");
       $("#q3").fadeOut("fast");
       $("#thanks").slideDown("slow");
+      // localStorage.setItem('userData',JSON.stringify(userData));
+      // $("#thanks").fadeOut("fast");
 
+    }
+  });
+
+    $('#viewAns').click(function() {
+      userData = JSON.parse(localStorage.getItem('userData'));
+      $("#SurveyAnswer").slideDown("slow");
+       localStorage.setItem('userData',JSON.stringify(userData));
+      if (userData) {
+        $('#thanks').fadeOut("fast");
+        $('#answers').fadeIn(1000);
+        document.getElementById('#name').innerHTML = userData.name;
+        document.getElementById('#email').innerHTML = userData.email;
+        var List = "";
+        for (var i = 0; i < userData.html.likes.length; i++) {
+          nameList = "<li>" + userData.html.likes[i] + "</li>";
+          document.getElementById("likes_HTML").innerHTML += nameList;
+        }
+        var List = "";
+        for (var i = 0; i < userData.html.dislikes.length; i++) {
+          nameList = "<li>" + userData.html.dislikes[i] + "</li>";
+          document.getElementById("dislikes_HTML").innerHTML += nameList;
+        }
+
+        for (var i = 0; i < userData.css.likes.length; i++) {
+          nameList = "<li>" + userData.css.likes[i] + "</li>";
+          document.getElementById("likes_CSS").innerHTML += nameList;
+        }
+        var List = "";
+        for (var i = 0; i < userData.css.dislikes.length; i++) {
+          nameList = "<li>" + userData.css.dislikes[i] + "</li>";
+          document.getElementById("dislikes_CSS").innerHTML += nameList;
+        }
+
+        for (var i = 0; i < userData.js.likes.length; i++) {
+          nameList = "<li>" + userData.js.likes[i] + "</li>";
+          document.getElementById("likes_JS").innerHTML += nameList;
+        }
+        var List = "";
+        for (var i = 0; i < userData.js.dislikes.length; i++) {
+          nameList = "<li>" + userData.js.dislikes[i] + "</li>";
+          document.getElementById("dislikes_JS").innerHTML += nameList;
+        }
+
+        document.getElementById("strength_HTML").innerHTML = userData.strength.html;
+        document.getElementById("strength_CSS").innerHTML = userData.strength.css;
+        document.getElementById("strength_JS").innerHTML = userData.strength.js;
+      } else {
+        alert("No data available");
+      }
 });
 
 //View Answers
 
-$('#viewAns').click(function(){
-  localStorage.setItem('userData',JSON.stringify(userData));
-  $("#thanks").fadeOut("fast");
-  $("#SurveyAnser").slideDown("slow");
-})
+
 
 //Delete Answers
 

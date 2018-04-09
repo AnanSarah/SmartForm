@@ -204,7 +204,7 @@
     <div class="row jumbotron question" id="q3">
       <h4>Estimate your front-end skills</h4>
       <div class="col-sm-4">
-        <span id="htmlStrengh">HTML Strength</span>
+        <span id="htmlStrength">HTML Strength</span>
         <label class="radio">
           <input type="radio" name="inlineHTMLRadioOptions" id="inlineRadio1" value="Weak"> Weak
         </label>
@@ -219,7 +219,7 @@
         </label>
       </div>
       <div class="col-sm-4">
-        <span>CSS Strength</span>
+        <span id="cssStrength">CSS Strength</span>
         <label class="radio">
           <input type="radio" name="inlineCSSRadioOptions" id="inlineRadio1" value="Weak"> Weak
         </label>
@@ -234,7 +234,7 @@
         </label>
       </div>
       <div class="col-sm-4">
-        <span>JavaScript Strength</span>
+        <span id="jsStrength">JavaScript Strength</span>
         <label class="radio">
           <input type="radio" name="inlineJSRadioOptions" id="inlineRadio1" value="Weak"> Weak
         </label>
@@ -261,10 +261,14 @@
       <p><button class="btn btn-default btn-lg" id="viewAns">View Answers</button> <button class="btn btn-danger" id="delAns">Delete Answers</button></p>
     </div>
 
-    <div class="jumbotron question" id="SurveyAnser">
+    <div class="jumbotron question" id="SurveyAnswer">
       <h1>Your answers</h1>
 
       <ul
+      <h7>Name </h7>
+      <p id="name"></p>
+      <h7>Email </h7>
+      <p id="email"></p>
       <h7>HTML likes: </h7>
       <p id="likes_HTML"></p>
       <h7>HTML dislikes: </h7>
@@ -286,16 +290,7 @@
     </ul>
 
       <script type="text/javascript">
-      var ans = JSON.parse(localStorage.userData);
-      document.getElementById("likes_HTML").innerHTML = ans.html.likes.toString();
-      document.getElementById("dislikes_HTML").innerHTML = ans.html.dislikes.toString();
-      document.getElementById("strength_HTML").innerHTML = ans.strength.html.toString();
-      document.getElementById("likes_CSS").innerHTML = ans.css.likes.toString();
-      document.getElementById("dislikes_CSS").innerHTML = ans.css.dislikes.toString();
-      document.getElementById("strength_CSS").innerHTML = ans.strength.css.toString();
-      document.getElementById("likes_JS").innerHTML = ans.js.likes.toString();
-      document.getElementById("dislikes_JS").innerHTML = ans.js.dislikes.toString();
-      document.getElementById("strength_JS").innerHTML = ans.strength.js.toString();
+
       </script>
 
     </div>
@@ -303,7 +298,7 @@
 
   <script type="text/javascript" src="vendor/jquery-3.1.1.min.js"></script>
   <script type="text/javascript" src="smartForm.js"></script>
-  
+
 
 </body>
 </html>
